@@ -1,0 +1,26 @@
+.card_container {
+    display: flex;
+    flex-direction: column;
+    width: 188.57px;
+    height: 245.97px;
+    background-color: #000000;
+    object-fit: contain;
+    overflow: hidden;
+}
+
+.card_image {
+    border-bottom: 5.38px solid #EC1D24;
+}
+
+.card_content {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex: 1;
+    color: #FFFFFF;
+}
+
+.card_name {
+    font-size: 14px;
+    text-transform: uppercase;
+}

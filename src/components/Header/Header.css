@@ -1,0 +1,20 @@
+.container {
+    background-color: #000000;
+    height: 84px;
+    padding: 16px 48px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.favourites {
+    display: flex;
+    align-items: center;
+    font-weight: 400;
+    size: 16px;
+    color: #FFFFFF;
+}
+
+.heart {
+    margin-right: 8px;
+}
