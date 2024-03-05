@@ -1,20 +1,31 @@
 .container {
-    background-color: #000000;
-    height: 84px;
-    padding: 16px 48px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+  background-color: #000000;
+  height: 84px;
+  padding: 16px 48px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
-.favourites {
-    display: flex;
-    align-items: center;
-    font-weight: 400;
-    size: 16px;
-    color: #FFFFFF;
+.favorites {
+  display: flex;
+  align-items: center;
+  font-weight: 400;
+  size: 16px;
+  color: #ffffff;
 }
 
 .heart {
-    margin-right: 8px;
+  margin-right: 8px;
+  cursor: pointer;
+}
+
+.logo_img {
+  cursor: pointer;
+}
+
+@media (max-width: 650px) {
+  .container {
+    padding: 16px;
+  }
 }

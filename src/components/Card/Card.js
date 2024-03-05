@@ -1,19 +1,31 @@
-import React from "react";
+import React from 'react';
 import './Card.css';
-import heartNotSelect from './../../assets/heart_notSelected.png'
+import heartNotSelect from './../../assets/heart_notSelected.png';
+import PropTypes from 'prop-types';
+import { useNavigate } from 'react-router-dom';
 
-export const Card = (props) => {
-    const cleanTitle = (string) => string.split('(', 1)[0];
+export const Card = ({ thumbnail, name }) => {
+  const navigate = useNavigate();
+  const cleanTitle = (string) => string.split('(', 1)[0];
 
-    return (
-        <div className="card_container">
-            <img src={`${props.thumbnail.path}.${props.thumbnail.extension}`} className="card_image" alt='thumbnail' width={'188.57px'} height={'189.95px'}/>
-            <div className="card_content">
-                <span className="card_name">{cleanTitle(props.name)}</span>
-                <span>
-                    <img src={heartNotSelect} className='heart' alt='favourites_image' />
-                </span>
-            </div>
-        </div>
-    )
-}
+  return (
+    <div className="card_container" onClick={() => navigate('/character')}>
+      <img
+        src={`${thumbnail.path}.${thumbnail.extension}`}
+        className="card_image"
+        alt="thumbnail"
+      />
+      <div className="card_content">
+        <span className="card_name">{cleanTitle(name)}</span>
+        <span>
+          <img src={heartNotSelect} className="img_heart" alt="favorites_image" />
+        </span>
+      </div>
+    </div>
+  );
+};
+
+Card.propTypes = {
+  thumbnail: PropTypes.string,
+  name: PropTypes.string
+};
