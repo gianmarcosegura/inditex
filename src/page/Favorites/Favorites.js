@@ -1,23 +1,17 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext } from 'react';
 import { InputSearch, Card } from '../../components';
-import { getData } from '../../utils/apiService';
 import './Favorites.css';
+import { MyContext } from '../../utils/context';
 
 export const Favorites = () => {
-  const [characters, setCharacters] = useState(undefined);
-
-  useEffect(() => {
-    getData().then((data) => {
-      setCharacters(data.data?.results);
-    });
-  }, []);
+  const { favorites } = useContext(MyContext);
 
   return (
     <section className="content">
       <p>FAVORITES</p>
-      <InputSearch />
+      <InputSearch count={favorites?.length} />
       <div className="charactersContent">
-        {characters && characters.length >= 1 && characters.map((el) => <Card {...el} />)}
+        {favorites && favorites.length >= 1 && favorites.map((el) => <Card {...el} />)}
       </div>
     </section>
   );

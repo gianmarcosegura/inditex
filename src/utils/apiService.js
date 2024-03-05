@@ -7,13 +7,13 @@ const apiService = axios.create({
   baseURL: API_BASE_URL
 });
 
-export const getData = async () => {
+export const getData = async (count) => {
   const response = await apiService.get('/v1/public/characters', {
     params: {
       ts: 1,
       apikey: API_KEY,
       hash: 'b86b807272ce894a245b6bc4f309c39a',
-      limit: 50
+      limit: count
     }
   });
   return response.data;

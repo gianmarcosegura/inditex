@@ -1,13 +1,17 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './App.css';
 import { RouterProvider } from 'react-router-dom';
 import { router } from './utils/router';
+import { MyContext } from './utils/context';
 
 function App() {
+  const [favorites, setFavorites] = useState([]);
   return (
     <div className="App">
       <React.StrictMode>
-        <RouterProvider router={router} />
+        <MyContext.Provider value={{ favorites, setFavorites }}>
+          <RouterProvider router={router} />
+        </MyContext.Provider>
       </React.StrictMode>
     </div>
   );

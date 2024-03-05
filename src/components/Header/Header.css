@@ -13,11 +13,11 @@
   font-weight: 400;
   size: 16px;
   color: #ffffff;
+  cursor: pointer;
 }
 
 .heart {
   margin-right: 8px;
-  cursor: pointer;
 }
 
 .logo_img {
