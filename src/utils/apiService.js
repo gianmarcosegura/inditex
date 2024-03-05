@@ -18,3 +18,14 @@ export const getData = async (count) => {
   });
   return response.data;
 };
+
+export const getComics = async (id) => {
+  const response = await apiService.get(`/v1/public/characters/${id}/comics`, {
+    params: {
+      ts: 1,
+      apikey: API_KEY,
+      hash: 'b86b807272ce894a245b6bc4f309c39a'
+    }
+  });
+  return response.data;
+};

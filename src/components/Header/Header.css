@@ -1,6 +1,6 @@
 .container {
   background-color: #000000;
-  height: 84px;
+  max-height: 84px;
   padding: 16px 48px;
   display: flex;
   justify-content: space-between;

@@ -13,7 +13,7 @@ export const Card = (props) => {
   const index = favorites.findIndex((item) => item.id === props.id);
 
   return (
-    <div className="card_container" onClick={() => navigate('/character')}>
+    <div className="card_container" onClick={() => navigate('/character', { state: { ...props } })}>
       <img
         src={`${props.thumbnail.path}.${props.thumbnail.extension}`}
         className="card_image"
