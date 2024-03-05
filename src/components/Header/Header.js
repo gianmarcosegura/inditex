@@ -5,7 +5,7 @@ import heart_selected from './../../assets/heart_selected.png';
 import heart_notSelected from './../../assets/heart_notSelected.png';
 
 import { useNavigate } from 'react-router-dom';
-import { MyContext } from '../../utils/context';
+import { MyContext } from '../../utils';
 
 export const Header = () => {
   const navigate = useNavigate();

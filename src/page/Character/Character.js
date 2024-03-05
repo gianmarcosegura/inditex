@@ -1,24 +1,18 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import './Character.css';
-import { MyContext } from '../../utils/context';
+import { MyContext, getComics, cleanTitle } from '../../utils';
 import heartNotSelect from './../../assets/heart_notSelected.png';
 import heartSelected from './../../assets/heart_selected.png';
-import { getComics } from '../../utils/apiService';
 
 export const Character = () => {
   const { state } = useLocation();
   const { favorites, setFavorites } = useContext(MyContext);
   const [comics, setComics] = useState([]);
   const index = favorites.findIndex((item) => item.id === state.id);
-  const cleanTitle = (string) => string.split('(', 1)[0];
-  console.log('characterProps: ', state);
 
   useEffect(() => {
-    getComics(state.id).then((data) => {
-      console.log('data: ', data);
-      setComics(data.data?.results);
-    });
+    getComics(state.id).then((data) => setComics(data.data?.results));
   }, []);
 
   return (
@@ -55,11 +49,11 @@ export const Character = () => {
       </section>
       <div className="character_container_spacing">
         <div className="character_content_spacing">
-          <h2>COMICS</h2>
+          <h2 className="comics_title">COMICS</h2>
           <div className="comics_container">
             {comics && comics.length ? (
               comics.map((el) => (
-                <div className="comic_element">
+                <div className="comic_element" key={el.id}>
                   <img
                     src={`${el.thumbnail.path}.${el.thumbnail.extension}`}
                     className="comic_image"

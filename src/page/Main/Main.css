@@ -1,5 +1,6 @@
 .content {
   padding: 48px;
+  position: relative;
   flex: 1;
 }
 

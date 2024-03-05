@@ -1,17 +1,17 @@
 import React, { useContext } from 'react';
 import { InputSearch, Card } from '../../components';
 import './Favorites.css';
-import { MyContext } from '../../utils/context';
+import { MyContext } from '../../utils';
 
 export const Favorites = () => {
   const { favorites } = useContext(MyContext);
 
   return (
     <section className="content">
-      <p>FAVORITES</p>
+      <h2 className="favorites_title">FAVORITES</h2>
       <InputSearch count={favorites?.length} />
-      <div className="charactersContent">
-        {favorites && favorites.length >= 1 && favorites.map((el) => <Card {...el} />)}
+      <div className="charactersContentFavorites">
+        {favorites && favorites.length >= 1 && favorites.map((el) => <Card key={el.id} {...el} />)}
       </div>
     </section>
   );

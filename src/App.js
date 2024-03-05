@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
 import './App.css';
 import { RouterProvider } from 'react-router-dom';
-import { router } from './utils/router';
-import { MyContext } from './utils/context';
+import { MyContext, router } from './utils';
 
 function App() {
   const [favorites, setFavorites] = useState([]);

@@ -4,12 +4,11 @@ import heartNotSelect from './../../assets/heart_notSelected.png';
 import heartSelected from './../../assets/heart_selected.png';
 import PropTypes from 'prop-types';
 import { useNavigate } from 'react-router-dom';
-import { MyContext } from '../../utils/context';
+import { MyContext, cleanTitle } from '../../utils';
 
 export const Card = (props) => {
   const navigate = useNavigate();
   const { favorites, setFavorites } = useContext(MyContext);
-  const cleanTitle = (string) => string.split('(', 1)[0];
   const index = favorites.findIndex((item) => item.id === props.id);
 
   return (
