@@ -5,12 +5,14 @@ import './Main.css';
 
 export const Main = () => {
   const [count, setCount] = useState(50);
+  const [elementsShowed, setElementsShowed] = useState(0);
   const [searchText, setSearchText] = useState('');
   const [characters, setCharacters] = useState(undefined);
 
   const fetchData = useCallback(async () => {
     getData(count).then((data) => {
       setCharacters(data.data?.results);
+      setElementsShowed(data.data?.count);
       setCount(count);
     });
   }, []);
@@ -23,9 +25,10 @@ export const Main = () => {
     const timeOut = setTimeout(() => {
       getDataSearch(count, searchText).then((data) => {
         setCharacters(data.data?.results);
+        setElementsShowed(data.data?.count);
         setCount(count);
       });
-    }, 2000);
+    }, 1000);
     return () => clearTimeout(timeOut);
   }, [searchText]);
 
@@ -34,7 +37,7 @@ export const Main = () => {
       {!characters && <LoaderBar />}
       {characters && (
         <>
-          <InputSearch count={count} setSearchText={setSearchText} />
+          <InputSearch count={elementsShowed} setSearchText={setSearchText} />
           <div className="charactersContent">
             {characters.length >= 1 && characters.map((el, index) => <Card key={index} {...el} />)}
           </div>

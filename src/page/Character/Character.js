@@ -4,11 +4,12 @@ import './Character.css';
 import { MyContext, getComics, cleanTitle } from '../../utils';
 import heartNotSelect from './../../assets/heart_notSelected.png';
 import heartSelected from './../../assets/heart_selected.png';
+import { LoaderBar } from '../../components';
 
 export const Character = () => {
   const { state } = useLocation();
   const { favorites, setFavorites } = useContext(MyContext);
-  const [comics, setComics] = useState([]);
+  const [comics, setComics] = useState(undefined);
   const index = favorites.findIndex((item) => item.id === state.id);
 
   useEffect(() => {
@@ -48,11 +49,12 @@ export const Character = () => {
         </div>
       </section>
       <div className="character_container_spacing">
-        <div className="character_content_spacing">
-          <h2 className="comics_title">COMICS</h2>
-          <div className="comics_container">
-            {comics && comics.length ? (
-              comics.map((el) => (
+        {!comics && <LoaderBar />}
+        {comics && comics.length >= 1 && (
+          <div className="character_content_spacing">
+            <h2 className="comics_title">COMICS</h2>
+            <div className="comics_container">
+              {comics.map((el) => (
                 <div className="comic_element" key={el.id}>
                   <img
                     src={`${el.thumbnail.path}.${el.thumbnail.extension}`}
@@ -61,12 +63,11 @@ export const Character = () => {
                   />
                   <div className="comic_title">{el.title}</div>
                 </div>
-              ))
-            ) : (
-              <div>No comics :(</div>
-            )}
+              ))}
+            </div>
           </div>
-        </div>
+        )}
+        {comics && comics.length === 0 && <div>This character has no comics</div>}
       </div>
     </>
   );
