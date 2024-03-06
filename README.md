@@ -15,3 +15,9 @@ Para crear una build de producción con el comando "npm run build" en la termina
 En caso de querer probarlo localmente,podeis instalar serve (npm install -g serve) y situados dentro de la carpeta build ejecutar el comando (serve -s) y entráis en el locahost que os indique serve.
 
 Se podría cambiar la configuración como se quiera modificando en webpack dentro de react-scripts y así crear por ejemplo un script que sea para produccion (como es actualmente npm run build, pero mas personalizado) y otro para desarrollo por ejemplo deshabilitando el minimizado u otras opciones de la build.
+
+Para ejecutar la App:
+- Situados en la raiz del proyecto, ejecutamos en la terminal el comando: npm ci
+- Esto instalará las dependencias del proyecto.
+- Una vez se instalen las dependencias, ejecutamos en la terminal npm start.
+- Esto levantara la App en el puerto 3000, en caso de que esté ocupado ese puerto lo levantará en otro puerto.
